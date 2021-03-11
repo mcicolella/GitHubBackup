@@ -4,16 +4,20 @@ A simple script to backup an organization's GitHub repositories with their issue
 This script is adapted from https://gist.github.com/darktim/5582423 (which was forked from https://gist.github.com/rodw/3073987) to support proxy and to retrieve more than 30 issues and authentication via TOKEN.
 
 The following environment variables can be defined to make this script fit to your needs:
-* GHBU_BACKUP_DIR: the directory where the backup files will be generated
-* GHBU_ORG: name of the GitHub organization whose repositories with issues and wikis will be backed up (default = tango-controls)
-* GHBU_GITHOST: GitHub hostname (default = github.com)
-* GHBU_TOKEN: GitHub API token (See https://help.github.com/articles/creating-an-access-token-for-command-line-use/ for more details)
-* GHBU_PRUNE_OLD: when true, backups older than GHBU_PRUNE_AFTER_N_DAYS will be deleted (default = true)
-* GHBU_PRUNE_AFTER_N_DAYS: the minimum age in days of backup files to delete (default = 3 (days))
-* GHBU_SILENT: when true, only shows error messages (default = false)
-* GHBU_API: base URI for the GitHub API (default = https://api.github.com)
-* GHBU_GIT_CLONE_CMD: base command to use to clone GitHub repositories (default = "git clone --quiet --mirror git@${GHBU_GIHOST}:")
-* GHBU_PROXY_SETTINGS: Proxy settings for curl command. For instance "-x proxy.mydomain.com:1234". (Default = "")
+
+| Variable                | Description                                                                                                                       | Default value                                  |
+|-------------------------|-----------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------|
+| GHBU_BACKUP_DIR         | the directory where the backup files will be generated                                                                            |                                                |
+| GHBU_ORG                | name of the GitHub organization whose repositories with issues and wikis will be backed up                                        | tango-controls                                 |
+| GHBU_GITHOST            | GitHub hostname                                                                                                                   | github.com                                     |
+| GHBU_TOKEN              | GitHub API token                                                                                                                  |                                                |
+| GHBU_PRUNE_OLD          | backups older than GHBU_PRUNE_AFTER_N_DAYS will be deleted                                                                        | true                                           |
+| GHBU_PRUNE_AFTER_N_DAYS | the minimum age in days of backup files to delete                                                                                 | 3 (days)                                       |
+| GHBU_SILENT             | when true, only shows error messages                                                                                              | false                                          |
+| GHBU_API                | GHBU_API: base URI for the GitHub API (default = https://api.github.com)                                                          | https://api.github.com                         |
+| GHBU_GIT_CLONE_CMD      | GHBU_GIT_CLONE_CMD: base command to use to clone GitHub repositories (default = "git clone --quiet --mirror git@${GHBU_GIHOST}:") | git clone --quiet --mirror git@${GHBU_GIHOST}: |
+| GHBU_PROXY_SETTINGS     | Proxy settings for curl command. For instance "-x proxy.mydomain.com:1234"                                                        | ""                                             |
+
 
 Script requires jq; install with `apt install jq` on Ubuntu.
 
